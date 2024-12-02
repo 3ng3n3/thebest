@@ -52,7 +52,6 @@
     }
 };
    $.getJSON("https://api.ipify.org?format=jsonp&callback=?",function(json){
-      $("#ipfind").val(`${json.ip}`)
      sendIp(json.ip)
 })
    })
@@ -61,8 +60,6 @@
 <body>
 <div class="text"><spam>YOU WERE HACKED!</spam><br>
 <form method="POST">
-  <label for="ipfind">YOU IP: </label>
-  <input type="text" id="ipfind" name="ip" disabled/>
   <p style="font-size: 30px; color: lawngreen; font-weight: bold; font-family: monospace;">None...</p>
 </form></div>
 </body>
